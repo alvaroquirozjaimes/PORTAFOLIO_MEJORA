@@ -104,3 +104,59 @@ function toggleDescription(id, btn) {
     content.classList.toggle('collapsed');
     btn.textContent = content.classList.contains('collapsed') ? 'Ver más' : 'Ver menos';
   }
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const projects = Array.from(document.querySelectorAll(".project-card"));
+    const pagination = document.getElementById("pagination");
+    const itemsPerPage = 3;
+    let currentPage = 1;
+    const totalPages = Math.ceil(projects.length / itemsPerPage);
+
+    function showPage(page) {
+      // Validar límites
+      if (page < 1) page = 1;
+      if (page > totalPages) page = totalPages;
+      currentPage = page;
+
+      // Ocultar todos
+      projects.forEach((card, index) => {
+        card.style.display = "none";
+        if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
+          card.style.display = "block";
+        }
+      });
+
+      updatePagination();
+    }
+
+    function updatePagination() {
+      pagination.innerHTML = "";
+
+      // Botón anterior <<
+      const prev = document.createElement("button");
+      prev.textContent = "<<";
+      prev.disabled = currentPage === 1;
+      prev.onclick = () => showPage(currentPage - 1);
+      pagination.appendChild(prev);
+
+      // Números
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement("button");
+        btn.textContent = i;
+        if (i === currentPage) btn.classList.add("active");
+        btn.onclick = () => showPage(i);
+        pagination.appendChild(btn);
+      }
+
+      // Botón siguiente >>
+      const next = document.createElement("button");
+      next.textContent = ">>";
+      next.disabled = currentPage === totalPages;
+      next.onclick = () => showPage(currentPage + 1);
+      pagination.appendChild(next);
+    }
+
+    showPage(1); // Inicializar
+  });
+
