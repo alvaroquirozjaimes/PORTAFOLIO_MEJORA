@@ -1,0 +1,714 @@
+/* Reset de margen, padding y box-sizing para todo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo base del body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #e2e8f0;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Contenedor principal con ancho máximo y centrado */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header con fondo semi-transparente y efecto blur */
+.header {
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+/* Barra de navegación como flexbox */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+/* Logo con tamaño y color destacado */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #22c55e;
+}
+
+/* Lista horizontal de links de navegación */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+/* Estilo para enlaces del menú */
+.nav-links a {
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+}
+
+.nav-links a:hover {
+    color: #22c55e;
+}
+
+/* Botón para menú móvil, oculto en escritorio */
+.mobile-menu {
+    display: none;
+    background: none;
+    border: none;
+    color: #e2e8f0;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1200;
+}
+
+/* Sección hero que ocupa toda la pantalla */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fondo radial suave en hero */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(34, 197, 94, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Grid para contenido hero: texto e imagen */
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Título principal con texto degradado */
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #22c55e, #10b981);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Subtítulo y párrafo con colores suaves */
+.hero-text h2 {
+    font-size: 1.5rem;
+    color: #104389;
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+/* Imagen de perfil circular con borde y sombra */
+.profile-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 4px solid #22c55e;
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
+    object-fit: cover;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Animación de flotación para la imagen */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Contenedor de información de contacto */
+.contact-info {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Cada ítem de contacto con fondo suave y borde */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(34, 197, 94, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+/* Sección con padding vertical */
+.section {
+    padding: 5rem 0;
+}
+
+/* Título de sección centrado y color verde */
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #22c55e;
+}
+
+/* Grid para tecnologías */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.tech-item {
+    background: rgba(30, 41, 59, 0.8);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Item de tecnología con fondo, borde y hover */
+.tech-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(34, 197, 94, 0.2);
+    border-color: #22c55e;
+}
+
+/* Icono dentro del tech-item */
+.tech-icon {
+    width: 40px;
+    height: 40px;
+    background: #22c55e;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Línea vertical para timeline */
+.timeline {
+    position: relative;
+    margin: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #22c55e;
+}
+
+/* Cada elemento timeline con margen e indentación */
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 4rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 21px;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    background: #22c55e;
+    border-radius: 50%;
+    border: 4px solid #0f172a;
+}
+
+/* Contenido del timeline con fondo y borde */
+.timeline-content {
+    background: rgba(30, 41, 59, 0.8);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+/* Fecha destacada en timeline */
+.timeline-date {
+    color: #22c55e;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Título y subtítulo timeline */
+.timeline-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-subtitle {
+    color: #94a3b8;
+    margin-bottom: 1rem;
+}
+
+/* Proyectos */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 4rem; /* Aumentado el espacio entre tarjetas */
+    margin-top: 3rem;
+    align-items: stretch; /* Asegura que las tarjetas tengan la misma altura */
+}
+
+.project-card {
+    background-color: var(--medium-blue); /* Fondo de la tarjeta */
+    border-radius: 12px; /* Bordes más redondeados */
+    overflow: hidden;
+    box-shadow: 0 10px 25px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Para que la imagen, contenido y enlaces se apilen */
+    border: 1px solid rgba(34, 197, 94, 0.3); /* Borde sutil */
+}
+
+.project-card:hover {
+    transform: translateY(-8px); /* Elevación más pronunciada */
+    box-shadow: 0 15px 40px rgba(34, 197, 94, 0.4); /* Sombra con el color de acento */
+}
+
+.project-image {
+    width: 100%;
+    height: 220px; /* Altura ligeramente aumentada para las imágenes */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    object-position: center; /* Centra la imagen */
+    display: block;
+    border-radius: 12px 12px 0 0; /* Bordes redondeados solo arriba */
+}
+
+.project-content {
+    padding: 1.8rem; /* Más padding interno */
+    flex-grow: 1; /* Para que el contenido ocupe el espacio restante */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    font-size: 1rem; /* Tamaño de título ligeramente mayor */
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--accent-green);
+    text-align: left; /* Título alineado a la izquierda */
+}
+
+.project-content p {
+    color: var(--text-color-soft);
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Para que la descripción ocupe el espacio y empuje los tags/links hacia abajo */
+    text-align: left; /* Texto de descripción alineado a la izquierda */
+    line-height: 1.7;
+}
+
+.project-tech {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem; /* Espacio entre tags */
+    justify-content: flex-start; /* Tags alineados a la izquierda */
+}
+
+.tech-tag {
+    background-color: rgba(34, 197, 94, 0.2); /* Fondo más sutil */
+    color: var(--accent-green);
+    padding: 0.5rem 1rem; /* Más padding */
+    border-radius: 6px;
+    font-size: 0.95rem; /* Tamaño ligeramente mayor */
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    border: 1px solid rgba(34, 197, 94, 0.4); /* Borde para tags */
+}
+
+.tech-tag:hover {
+    background-color: rgba(34, 197, 94, 0.4); /* Efecto hover en tags */
+}
+
+.project-links {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Espacio entre botones */
+    justify-content: center; /* Centrar los botones */
+}
+
+.project-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem; /* Espacio entre icono y texto */
+    padding: 0.9rem 1.5rem; /* Más padding para los botones */
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    text-align: center; /* Asegura el texto centrado en el botón */
+    justify-content: center; /* Centra el icono y el texto */
+    min-width: 140px; /* Ancho mínimo para los botones */
+}
+
+.project-btn i {
+    font-size: 1.1rem; /* Tamaño de icono */
+}
+
+.project-btn.demo {
+    background: linear-gradient(135deg, var(--accent-green), #10b981); /* Degradado con tu color principal */
+    color: white;
+    box-shadow: 0 4px 10px rgba(34, 197, 94, 0.4);
+}
+
+.project-btn.github {
+    background: var(--dark-blue); /* Color oscuro similar a GitHub */
+    color: var(--light-grey);
+    border-color: rgba(34, 197, 94, 0.3); /* Un sutil borde verde */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.project-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+}
+.project-btn.demo:hover {
+    box-shadow: 0 8px 20px rgba(34, 197, 94, 0.6);
+}
+
+/* Responsive Design for Projects Section */
+@media (max-width: 1024px) {
+    .projects-grid {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+        gap: 1.5rem;
+    }
+    .project-card {
+        max-width: 400px; /* Limita el ancho de la tarjeta para móviles */
+        margin: 0 auto; /* Centra la tarjeta */
+    }
+    .project-title {
+        font-size: 1.6rem;
+    }
+    .project-content p {
+        font-size: 0.95rem;
+    }
+    .tech-tag {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+    .project-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+        min-width: unset;
+    }
+    .project-links {
+        flex-direction: column; /* Botones apilados en móviles si es necesario */
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-title {
+        font-size: 1.4rem;
+    }
+    .project-content p {
+        font-size: 0.9rem;
+    }
+    .tech-tag {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.7rem;
+    }
+    .project-btn {
+        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
+    }
+}
+
+/* Formulario de contacto centrado */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(30, 41, 59, 0.8);
+    padding: 3rem;
+    border-radius: 15px;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #22c55e;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 8px;
+    color: #e2e8f0;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+/* Botón de envío con degradado y animación hover */
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #22c55e, #10b981);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+}
+
+/* Footer centrado con fondo oscuro */
+.footer {
+    background: rgba(15, 23, 42, 0.95);
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+
+.social-buttons {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-btn.email    { background-color: #3b82f6; }
+.social-btn.whatsapp { background-color: #25D366; }
+.social-btn.linkedin { background-color: #0A66C2; }
+.social-btn.github   { background-color: #1f2937; }
+
+/* RESPONSIVE DESIGN */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 1024px) {
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .profile-image {
+        margin: 2rem auto 0;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+/* Móviles - Media Query Principal */
+@media (max-width: 768px) {
+    /* Mostrar botón hamburguesa en móvil */
+    .mobile-menu {
+        display: block;
+    }
+    
+    /* Ocultar menú por defecto en móvil */
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 70px; /* altura del header ajustada */
+        right: 0;
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        width: 250px;
+        padding: 2rem 1rem;
+        border-radius: 0 0 0 15px;
+        box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.4);
+        border-left: 2px solid rgba(34, 197, 94, 0.3);
+        border-bottom: 2px solid rgba(34, 197, 94, 0.3);
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+        z-index: 1100;
+        gap: 0;
+    }
+    
+    /* Mostrar menú cuando tiene clase active */
+    .nav-links.active {
+        display: flex;
+    }
+    
+    /* Estilos para items del menú móvil */
+    .nav-links li {
+        width: 100%;
+        margin-bottom: 0;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 1rem 0.5rem;
+        border-bottom: 1px solid rgba(34, 197, 94, 0.2);
+        color: #e2e8f0;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .nav-links a:hover {
+        background: rgba(34, 197, 94, 0.1);
+        color: #22c55e;
+        transform: translateX(5px);
+    }
+    
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+    
+    .nav {
+        padding: 1rem;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .social-buttons {
+        justify-content: center;
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-text h2 {
+        font-size: 1.2rem;
+    }
+    
+    .hero-text p {
+        font-size: 1rem;
+    }
+    
+    .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-card {
+        margin: 0 1rem;
+    }
+    
+    .contact-form {
+        margin: 0 1rem;
+        padding: 2rem 1.5rem;
+    }
+    
+    .nav-links {
+        width: 200px;
+        padding: 1.5rem 1rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
+
+
+/*ver mas*/
+.project-description.collapsed {
+    max-height: 120px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .toggle-description-btn {
+    margin-top: 0.5rem;
+    background-color: transparent;
+    color: #38bdf8;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 0;
+  }

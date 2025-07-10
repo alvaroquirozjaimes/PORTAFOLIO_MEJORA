@@ -1,0 +1,106 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyTFB-42-yMYMa-nlrZeQupegqcKpGq3_spd_fYZvDUR3cmaeMt9MLgbcF_k1CJDDM25A/exec";
+  const form = document.getElementById("contactForm");
+  const submitBtn = form?.querySelector(".submit-btn");
+  const originalBtnText = submitBtn?.textContent || "Enviar Mensaje";
+
+  if (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Enviando...";
+        submitBtn.style.opacity = "0.7";
+      }
+
+      const formData = new FormData(form);
+
+      fetch(scriptURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(formData).toString()
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.result === "success") {
+            showNotification("✅ Mensaje enviado correctamente.", "success");
+            form.reset();
+          } else {
+            throw new Error("Respuesta no exitosa del servidor");
+          }
+        })
+        .catch(error => {
+          console.error("Error al enviar email:", error);
+          showNotification("❌ Error al enviar el mensaje. Intenta de nuevo.", "error");
+        })
+        .finally(() => {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+            submitBtn.style.opacity = "1";
+          }
+        });
+    });
+  }
+
+  // Aquí puedes mantener el resto de tu JS, por ejemplo showNotification, menú hamburguesa, etc.
+  // ...
+
+  function showNotification(message, type = "info") {
+    const notification = document.createElement("div");
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+      <span>${message}</span>
+      <button onclick="this.parentElement.remove()" style="background: none; border: none; color: inherit; font-size: 1.2rem; cursor: pointer; margin-left: 10px;">×</button>
+    `;
+    Object.assign(notification.style, {
+      position: "fixed",
+      top: "20px",
+      right: "20px",
+      padding: "1rem 1.5rem",
+      borderRadius: "8px",
+      color: "white",
+      fontWeight: "500",
+      zIndex: "9999",
+      maxWidth: "400px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
+      transform: "translateX(100%)",
+      transition: "transform 0.3s ease"
+    });
+
+    if (type === "success") {
+      notification.style.background = "linear-gradient(135deg, #22c55e, #10b981)";
+    } else if (type === "error") {
+      notification.style.background = "linear-gradient(135deg, #ef4444, #dc2626)";
+    } else {
+      notification.style.background = "linear-gradient(135deg, #3b82f6, #2563eb)";
+    }
+
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+      notification.style.transform = "translateX(0)";
+    }, 100);
+
+    setTimeout(() => {
+      notification.style.transform = "translateX(100%)";
+      setTimeout(() => {
+        if (notification.parentElement) notification.remove();
+      }, 300);
+    }, 5000);
+  }
+});
+
+
+
+function toggleDescription(id, btn) {
+    const content = document.getElementById(id);
+    content.classList.toggle('collapsed');
+    btn.textContent = content.classList.contains('collapsed') ? 'Ver más' : 'Ver menos';
+  }
