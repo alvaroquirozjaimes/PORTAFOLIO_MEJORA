@@ -160,3 +160,15 @@ function toggleDescription(id, btn) {
     showPage(1); // Inicializar
   });
 
+
+
+function filterTech(category) {
+    const items = document.querySelectorAll('.tech-item');
+    items.forEach(item => {
+      if (category === 'all' || item.classList.contains(category)) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
