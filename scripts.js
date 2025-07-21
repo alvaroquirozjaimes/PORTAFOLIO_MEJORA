@@ -200,13 +200,21 @@ function toggleDescription(id, btn) {
         filterTech('all'); // Ensure all items are visible by default
     }); 
 
+// =====================
+// CONTADOR DE VISITAS
+// =====================
 
-    fetch('https://alvaroquirozjaimes.github.io/PORTAFOLIO_MEJORA/')
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById('visits').textContent = data.value;
-  });
+  // =====================
+  // CONTADOR DE VISITAS
+  // =====================
+  fetch('https://api.countapi.xyz/hit/alvaroquirozjaimes.github.io/PORTAFOLIO_MEJORA')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('visits').textContent = data.value;
+    })
+    .catch(err => {
+      console.error('Error al contar visitas:', err);
+      document.getElementById('visits').textContent = 'N/D';
+    });
 
 
-
-  
