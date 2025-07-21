@@ -199,3 +199,14 @@ function toggleDescription(id, btn) {
         }
         filterTech('all'); // Ensure all items are visible by default
     }); 
+
+
+    fetch('https://alvaroquirozjaimes.github.io/PORTAFOLIO_MEJORA/')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('visits').textContent = data.value;
+  });
+
+
+
+  
