@@ -207,7 +207,7 @@ function toggleDescription(id, btn) {
   // =====================
   // CONTADOR DE VISITAS
   // =====================
- fetch("https://api.countapi.dev/hit/alvaroquirozjaimes.github.io/PORTAFOLIO_MEJORA")
+/*  fetch("https://api.countapi.dev/hit/alvaroquirozjaimes.github.io/PORTAFOLIO_MEJORA")
     .then((res) => res.json())
     .then((data) => {
       document.getElementById("visits").textContent = data.value;
@@ -216,3 +216,4 @@ function toggleDescription(id, btn) {
       console.error("Error al contar visitas:", err);
       document.getElementById("visits").textContent = "N/D";
     });
+ */
