@@ -162,13 +162,40 @@ function toggleDescription(id, btn) {
 
 
 
-function filterTech(category) {
-    const items = document.querySelectorAll('.tech-item');
-    items.forEach(item => {
-      if (category === 'all' || item.classList.contains(category)) {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
+
+    function filterTech(category) {
+        const items = document.querySelectorAll('.tech-item');
+        const filterButtons = document.querySelectorAll('button[onclick^="filterTech"]');
+
+        // First, reset all filter buttons to their default style
+        filterButtons.forEach(button => {
+            button.style.background = '#1e293b'; // Your default button background
+            button.style.color = '#cbd5e1'; // Your default button text color
+        });
+
+        // Then, find the button that was just clicked and apply the green style
+        // We use 'event.currentTarget' to get the specific button that triggered the function
+        if (event && event.currentTarget) { // Ensure event is available (it usually is with onclick)
+            event.currentTarget.style.background = '#4CAF50'; // Green color for active button
+            event.currentTarget.style.color = '#ffffff'; // White text for contrast
+        }
+
+        // Now, filter the tech items based on the category
+        items.forEach(item => {
+            if (category === 'all' || item.classList.contains(category)) {
+                item.style.display = 'block'; // Or 'grid' if your tech-grid uses grid display
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    // Optional: Set the 'Todos' button as active and show all items when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        const allButton = document.querySelector('button[onclick="filterTech(\'all\')"]');
+        if (allButton) {
+            allButton.style.background = '#4CAF50'; // Set 'Todos' to green
+            allButton.style.color = '#ffffff'; // Set 'Todos' text to white
+        }
+        filterTech('all'); // Ensure all items are visible by default
     });
-  }
