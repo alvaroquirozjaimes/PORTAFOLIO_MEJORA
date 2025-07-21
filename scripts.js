@@ -198,4 +198,4 @@ function toggleDescription(id, btn) {
             allButton.style.color = '#ffffff'; // Set 'Todos' text to white
         }
         filterTech('all'); // Ensure all items are visible by default
-    });
+    }); 
