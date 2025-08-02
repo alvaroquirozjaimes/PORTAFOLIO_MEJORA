@@ -301,10 +301,151 @@
 
     <!-- Proyectos -->
     <section id="proyectos" class="section">
+        
     <div class="container">
         <h2 class="section-title">Proyectos</h2>
         <div id="pagination" class="pagination-controls"></div>
         <div class="projects-grid">
+
+            <div class="project-card">
+  <img src="./gif/e-learning.gif" alt="Captura de pantalla de la Plataforma Aprende Perú" class="project-image">
+  <div class="project-content">
+    <h3 class="project-title"> Empresa Aprende Perú - Plataforma de Gestión Integral de cursos y Certificados</h3>
+    <div class="project-description collapsed" id="desc-6">
+      <p style="text-align: justify;">
+        Sistema web desarrollado para gestionar de forma integral cursos virtuales de la empresa Aprende Perú. Desde la publicación del curso hasta la emisión y validación de certificados, la plataforma automatiza y centraliza todo el proceso educativo en línea. Este sistema cuenta con 3 usuarios: Estudiante, asesor y administrador, cada uno con diferentes accesos y permisos.
+      </p>
+      <p style="text-align: justify;">
+        <strong>Funcionalidades:</strong> Gestión completa de cursos, módulos y paquetes, asignación personalizada de contenidos a estudiantes, generación automática de certificados PDF con código QR validable y almacenamiento seguro en Google Drive. Además, cuenta con inscripción y pagos en línea, validación pública de certificados por nombre o DNI y contacto directo vía WhatsApp.
+      </p>
+    </div>
+    <button class="toggle-description-btn" onclick="toggleDescription('desc-6', this)">Ver más</button>
+    <div class="project-tech">
+      <span class="tech-tag">React</span>
+      <span class="tech-tag">Tailwind CSS</span>
+      <span class="tech-tag">Node.js</span>
+      <span class="tech-tag">Express.js</span>
+      <span class="tech-tag">PostgreSQL</span>
+      <span class="tech-tag">Sequelize</span>
+      <span class="tech-tag">PDF-lib</span>
+      <span class="tech-tag">QRCode</span>
+      <span class="tech-tag">Google Drive API</span>
+    </div>
+    <div class="project-links">
+      <a href="#" target="_blank" class="project-btn demo">
+        <i class="fas fa-external-link-alt"></i> Ver Demo
+      </a>
+      <a href="#" target="_blank" class="project-btn github">
+        <i class="fab fa-github"></i> Ver Código
+      </a>
+    </div>
+  </div>
+</div>
+
+ <div class="project-card">
+  <img src="./gif/chatia-e-learning.gif" alt="Integración de IA y certificados personalizados" class="project-image">
+  <div class="project-content">
+    <h3 class="project-title"> Actualización - IA para Generación Inteligente de Certificados</h3>
+    <div class="project-description collapsed" id="desc-7">
+      <p style="text-align: justify;">
+        Este módulo complementa el sistema desarrollado para Aprende Perú, integrando nuevas capacidades basadas en inteligencia artificial. Ahora, el sistema puede generar automáticamente temarios personalizados y agregar datos completos del estudiante en los certificados emitidos.
+      </p>
+      <p style="text-align: justify;">
+        <strong>¿Qué incluye el certificado generado?</strong><br>
+        - Nombre del estudiante<br>
+        - Curso realizado<br>
+        - Nota final<br>
+        - Duración y modalidad<br>
+        - Temario detallado generado por IA<br>
+        - Firma digital, código único, DNI<br>
+        - Código QR para validación pública
+      </p>
+      <p style="text-align: justify;">
+        <strong>☁️ Almacenamiento en la nube:</strong> Una vez generado, el certificado PDF se guarda automáticamente en Google Drive mediante la API oficial y autenticación con cuentas de servicio. Esto asegura una gestión centralizada y segura.
+      </p>
+      <p style="text-align: justify;">
+        <strong>🛠️ Beneficios:</strong> Esta integración optimiza la generación de certificados, minimiza errores humanos y ofrece una personalización más profunda para cada estudiante.
+      </p>
+    </div>
+    <button class="toggle-description-btn" onclick="toggleDescription('desc-7', this)">Ver más</button>
+    <div class="project-tech">
+      <span class="tech-tag">IA Generativa</span>
+      <span class="tech-tag">PDF-lib</span>
+      <span class="tech-tag">QRCode</span>
+      <span class="tech-tag">Google Drive API</span>
+      <span class="tech-tag">Node.js</span>
+      <span class="tech-tag">Express.js</span>
+      <span class="tech-tag">React</span>
+      <span class="tech-tag">Sequelize</span>
+    </div>
+    <div class="project-links">
+      <a href="#" target="_blank" class="project-btn demo">
+        <i class="fas fa-external-link-alt"></i> Ver Demo
+      </a>
+      <a href="#" target="_blank" class="project-btn github">
+        <i class="fab fa-github"></i> Ver Código
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<div class="project-card">
+  <img src="./gif/matisse.gif" alt="Captura de pantalla del sistema de gestión inmobiliaria Matisse" class="project-image">
+  <div class="project-content">
+    <h3 class="project-title">Empresa Inmobiliaria Matisse - Plataforma de Gestión Inmobiliaria</h3>
+    <div class="project-description collapsed" id="desc-8">
+      <p style="text-align: justify;">
+        Este proyecto fue desarrollado como parte de mi colaboración con Inmobiliaria Matisse, con el objetivo de implementar una plataforma web eficiente para la gestión integral de sus propiedades. El sistema se encuentra actualmente en fase funcional avanzada, y continúa evolucionando según nuevos requerimientos de la empresa.
+      </p>
+      <p style="text-align: justify;">
+        <strong>Funcionalidades Implementadas:</strong><br>
+        - Gestión de Inmuebles (CRUD completo)<br>
+        - Subida de imágenes con vista previa<br>
+        - Filtros y búsqueda avanzada por múltiples criterios<br>
+        - Propiedades destacadas en la página principal<br>
+        - Página de detalle con galería interactiva<br>
+        - Autenticación segura con roles (admin, agente, cliente)<br>
+        - Dashboards personalizados por tipo de usuario<br>
+        - Formulario de contacto validado con anti-spam<br>
+        - Diseño totalmente responsivo<br>
+        - Mapa de sedes con información de contacto
+      </p>
+      <p style="text-align: justify;">
+        <strong>⚙️ Estado:</strong> En funcionamiento, con nuevas funcionalidades en desarrollo según las necesidades de la empresa.
+      </p>
+    </div>
+    <button class="toggle-description-btn" onclick="toggleDescription('desc-8', this)">Ver más</button>
+    <div class="project-tech">
+      <span class="tech-tag">React.js</span>
+      <span class="tech-tag">React Router DOM</span>
+      <span class="tech-tag">Tailwind CSS</span>
+      <span class="tech-tag">Axios</span>
+      <span class="tech-tag">Lucide React</span>
+      <span class="tech-tag">React Icons</span>
+      <span class="tech-tag">Node.js</span>
+      <span class="tech-tag">Express.js</span>
+      <span class="tech-tag">PostgreSQL</span>
+      <span class="tech-tag">Sequelize</span>
+      <span class="tech-tag">JWT</span>
+      <span class="tech-tag">Bcrypt</span>
+      <span class="tech-tag">Multer</span>
+      <span class="tech-tag">Dotenv</span>
+      <span class="tech-tag">path</span>
+      <span class="tech-tag">fs</span>
+    </div>
+    <div class="project-links">
+      <a href="#" target="_blank" class="project-btn demo">
+        <i class="fas fa-external-link-alt"></i> Ver Demo
+      </a>
+      <a href="#" target="_blank" class="project-btn github">
+        <i class="fab fa-github"></i> Ver Código
+      </a>
+    </div>
+  </div>
+</div>
+
+
 
             <div class="project-card">
   <img src="./gif/zendo.gif" alt="Captura de pantalla de la Aplicación de Gestión de Tareas Inteligente" class="project-image">
@@ -796,7 +937,6 @@
     <img src="https://visitor-badge.laobi.icu/badge?page_id=alvaroquirozjaimes.github.io.PORTAFOLIO_MEJORA" />
   </div>
 </footer>
-
 
   <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
